@@ -16,5 +16,8 @@
   "devDependencies": {
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.0"
+  },
+  "script": {
+    "build": "npx webpack"
   }
 }
