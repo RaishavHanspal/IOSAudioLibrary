@@ -7,7 +7,7 @@ const sound = new Howl({
 
 // click to hear people cheer for you
 function cheerForMe() {
-    playEmptySound();
+    unlockHowlerAudio();
     sound.play();
 }
 
@@ -19,17 +19,16 @@ window.addEventListener("DOMContentLoaded", () => {
 /**
  * Ensures the Web Audio API is unblocked by playing an empty sound.
  */
-function playEmptySound() {
-    // Create an audio context to check if it's already unlocked
-    const audioContext = Howler.ctx || new (window.AudioContext || window.webkitAudioContext)();
+function unlockHowlerAudio() {
+    const audioContext = Howler.ctx;
 
-    if (audioContext.state === "suspended") {
-        const audio = new Audio(); 
-        audio.src = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YQAAAAA="; // Empty WAV file
-        audio.play().catch(() => {
-            console.error("Failed to play empty sound. User interaction is required.");
+    if (audioContext && audioContext.state === "suspended") {
+        audioContext.resume().then(() => {
+            console.log("Howler audio context unlocked!");
+        }).catch(() => {
+            console.error("Failed to unlock Howler audio context. User interaction required.");
         });
     } else {
-        console.log("Audio context is already unlocked.");
+        console.log("Howler audio context is already unlocked or not available.");
     }
 }
