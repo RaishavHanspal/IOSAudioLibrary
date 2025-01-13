@@ -1,0 +1,20 @@
+{
+  "name": "iosaudiolibrary",
+  "version": "1.0.0",
+  "description": "To track down a proper fix for sound mute issues in IOS devices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-loader": "^9.2.1",
+    "howler": "^2.2.4",
+    "html-loader": "^5.1.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  }
+}
