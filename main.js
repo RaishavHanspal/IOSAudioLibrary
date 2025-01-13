@@ -1,7 +1,8 @@
 import { Howl } from 'howler';
 
 const sound = new Howl({
-    src: ["cheer.wav"]
+    src: ["cheer.wav"],
+    html5: true
 })
 
 // click to hear people cheer for you
